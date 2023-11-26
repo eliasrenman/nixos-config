@@ -13,9 +13,10 @@
 * Log out and login as `elias` setting `hyprland` as desktop session
 * Generate an SSH key for the new machine: `ssh-keygen`
 * [Add SSH key to github profile](https://github.com/settings/ssh/new)
+ <!--
 # Remove this until i've create dotfiles * Clone dotfiles: `git clone --recursive git@github.com:willprice/dotfiles.git ~/.dotfiles`
 # * Install dotfiles: `cd ~/.dotfiles; ./install-all.sh`
-
+-->
 ## Virtualbox setup
 
 - System -> Motherboard -> Enable EFI
