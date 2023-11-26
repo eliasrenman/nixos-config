@@ -2,19 +2,19 @@
 * Write the ISO to a USB drive using `dd`
 * Boot machine from ISO
 * Install git: `nix-env -i git`
-* Clone configuration: `git clone https://github.com/willprice/nixos-config.git`
+* Clone configuration: `git clone https://github.com/eliasrenman/nixos-config.git`
 * Follow the [installation guide](https://nixos.org/nixos/manual/index.html#sec-installation) up to `nixos-generate-config`
   * Copy nixos configuration files to `/mnt`: `cp nixos-config/* /mnt/etc/nixos`
   * Generate hardware config: `nixos-generate-config`
   * Install system: `nixos-install` (set root password)
 * Reboot
 * Login as root
-* Set password for `will`: `passwd will`
-* Log out and login as `will` setting `mate+xmonad` as desktop session
+* Set password for `elias`: `passwd will`
+* Log out and login as `elias` setting `hyprland` as desktop session
 * Generate an SSH key for the new machine: `ssh-keygen`
 * [Add SSH key to github profile](https://github.com/settings/ssh/new)
-* Clone dotfiles: `git clone --recursive git@github.com:willprice/dotfiles.git ~/.dotfiles`
-* Install dotfiles: `cd ~/.dotfiles; ./install-all.sh`
+# Remove this until i've create dotfiles * Clone dotfiles: `git clone --recursive git@github.com:willprice/dotfiles.git ~/.dotfiles`
+# * Install dotfiles: `cd ~/.dotfiles; ./install-all.sh`
 
 ## Virtualbox setup
 

@@ -26,17 +26,17 @@
 
   i18n = {
     consoleFont = "Lat2-Terminus16";
-    consoleKeyMap = "uk";
-    defaultLocale = "en_GB.UTF-8";
+    consoleKeyMap = "se";
+    defaultLocale = "sv_SE.UTF-8";
   };
 
-  time.timeZone = "Europe/London";
+  time.timeZone = "Europe/Stockholm";
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
   # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
 
-  programs.vim.defaultEditor = true;
+  programs.vscode.defaultEditor = true;
   #programs.nylas-mail.enable = true;
   programs.npm.enable = true;
   #programs.nm-applet.enable = true;
@@ -44,7 +44,6 @@
   #programs.iotop.enable = true;
   programs.iftop.enable = true;
   programs.java.enable = true;
-  programs.gphoto2.enable = true;
   services.mpd = {
     enable = true;
     startWhenNeeded = true;
@@ -53,8 +52,8 @@
   services.acpid.enable = true;
   services.redshift = {
     enable = true;
-    latitude = "51.4545";
-    longitude = "-2.5879";
+    latitude = "63.825848";
+    longitude = "-20.263035";
   };
 
   services.openssh.enable = true;
@@ -74,26 +73,16 @@
   # services.xserver.xkbOptions = "eurosign:e";
 
   services.xserver.libinput.enable = true;
+  services.xserver.layout = "se";
+  services.xserver.xkbVariant = "mac";
 
-  # Enable the KDE Desktop Environment.
-  #services.xserver.displayManager.sddm.enable = true;
-  #services.xserver.desktopManager.plasma5.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.mate.enable = true;
-  services.xserver.windowManager.xmonad = {
-    enable = true;
-    enableContribAndExtras = true;
-    extraPackages = haskellPackages: [
-      haskellPackages.xmonad-contrib
-      haskellPackages.xmonad-extras
-      haskellPackages.xmonad
-    ];
-  };
+  # Enable the Hyprland Desktop Environment.
+  programs.hyprland.enable = true;
 
   # Don't forget to set a password with ‘passwd’.
-  users.users.will = {
+  users.users.elias = {
     isNormalUser = true;
-    home = "/home/will";
+    home = "/home/elias";
     uid = 1000;
     extraGroups = [ "wheel" "networkmanager" ];
   };
