@@ -31,6 +31,7 @@
   # started in user sessions.
   # programs.mtr.enable = true;
   # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
+  program.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
   programs.neovim.enable = true;
   programs.neovim.vimAlias = true;
@@ -85,13 +86,13 @@
 
   # Enable the Hyprland Desktop Environment.
   programs.hyprland.enable = true;
-  programs.hyprland.enableNvidiaPatches = true;
+  # programs.hyprland.enableNvidiaPatches = true;
   programs.hyprland.xwayland.enable = true;
 
   # Don't forget to set a password with ‘passwd’.
   users.users.elias = {
     isNormalUser = true;
-    descriiption = "Elias Renman";
+    description = "Elias Renman";
     home = "/home/elias";
     uid = 1000;
     extraGroups = [ "wheel" "networkmanager" ];
