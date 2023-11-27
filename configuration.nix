@@ -85,7 +85,6 @@
 };
 
   services.xserver.enable = true;
-  services.xserver.layout = "gb";
   # services.xserver.xkbOptions = "eurosign:e";
 
   services.xserver.libinput.enable = true;
