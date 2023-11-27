@@ -50,8 +50,8 @@
 
   services.acpid.enable = true;
   services.redshift.enable = true;
-  location.latitude = "63.825848";
-  location.longitude = "-20.263035";
+  location.latitude = 63.825848;
+  location.longitude = -20.263035;
 
   services.openssh.enable = true;
 
