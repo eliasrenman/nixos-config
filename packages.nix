@@ -31,7 +31,7 @@
     clang-tools
     
     rustc
-    python37
+    python38
     nodejs_20
 
 
@@ -65,19 +65,18 @@
     xorg.xmodmap
     xorg.xset
     xorg.xsetroot
-
-    terminus_font
-    terminus_font_ttf
-    dejavu_fonts
-    jetbrains-mono
-    inriafonts
-    iosevka
-
+    
     firefox
     google-chrome
     alacritty
     hyprland
-    ncmpcpp
+
+    # Fonts
+    
+    terminus_font
+    terminus_font_ttf
+    jetbrains-mono
+    inriafonts
     powerline-fonts
   ];
 }
