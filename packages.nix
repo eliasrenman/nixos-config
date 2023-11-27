@@ -16,7 +16,6 @@
     gzip
     unar
     unzip
-    dd
     zsh
 
     # Build toolchains
