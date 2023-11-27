@@ -9,7 +9,7 @@
   * Install system: `nixos-install` (set root password)
 * Reboot
 * Login as root
-* Set password for `elias`: `passwd will`
+* Set password for `elias`: `passwd elias`
 * Log out and login as `elias` setting `hyprland` as desktop session
 * Generate an SSH key for the new machine: `ssh-keygen`
 * [Add SSH key to github profile](https://github.com/settings/ssh/new)
