@@ -31,7 +31,7 @@
   # started in user sessions.
   # programs.mtr.enable = true;
   # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
-  program.zsh.enable = true;
+  programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
   programs.neovim.enable = true;
   programs.neovim.vimAlias = true;
