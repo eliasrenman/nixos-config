@@ -32,7 +32,9 @@
   # programs.mtr.enable = true;
   # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
   users.defaultUserShell = pkgs.zsh;
-  programs.vscode.defaultEditor = true;
+  programs.neovim.enable = true;
+  programs.neovim.vimAlias = true;
+  programs.neovim.defaultEditor = true;
   #programs.nylas-mail.enable = true;
   programs.npm.enable = true;
   #programs.nm-applet.enable = true;
