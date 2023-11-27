@@ -41,11 +41,7 @@
 
     # Media
     ffmpeg-full
-    gstreamer
-    gst-plugins-base
-    gst-plugins-bad
-    gst-plugins-ugly
-    gst-plugins-good
+    
 
     # IDEs
     neovim
@@ -61,7 +57,7 @@
     # Desktop
     material-icons
     neofetch
-
+    vlc
     xorg.xmodmap
     xorg.xset
     xorg.xsetroot
