@@ -25,9 +25,15 @@
   networking.wireless.enable = true;
 
   i18n = {
-    consoleFont = "Lat2-Terminus16";
-    consoleKeyMap = "se";
-    defaultLocale = "sv_SE.UTF-8";
+    LC_ADDRESS = "sv_SE.UTF-8";
+    LC_IDENTIFIACTION = "sv_SE.UTF-8";
+    LC_MEASUREMENT = "sv_SE.UTF-8";
+    LC_MONETARY = "sv_SE.UTF-8";
+    LC_NAME = "sv_SE.UTF-8";
+    LC_NUMERIC = "sv_SE.UTF-8";
+    LC_PAPER = "sv_SE.UTF-8";
+    LC_TELEPHONE = "sv_SE.UTF-8";
+    LC_TIME = "sv_SE.UTF-8";
   };
 
   time.timeZone = "Europe/Stockholm";
@@ -35,7 +41,7 @@
   # started in user sessions.
   # programs.mtr.enable = true;
   # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
-
+  users.defaultUserShell = pkgs.zsh;
   programs.vscode.defaultEditor = true;
   #programs.nylas-mail.enable = true;
   programs.npm.enable = true;
@@ -66,7 +72,17 @@
   services.printing.enable = true;
 
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+
+  services.pipewire = {
+    enable = true;
+    audio.enable = true;
+    pulse.enable = true;
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
+    jack.enable = true;
+};
 
   services.xserver.enable = true;
   services.xserver.layout = "gb";
@@ -78,10 +94,13 @@
 
   # Enable the Hyprland Desktop Environment.
   programs.hyprland.enable = true;
+  programs.hyprland.enableNvidiaPatches = true;
+  programs.hyprland.xwayland.enable = true;
 
   # Don't forget to set a password with ‘passwd’.
   users.users.elias = {
     isNormalUser = true;
+    descriiption = "Elias Renman";
     home = "/home/elias";
     uid = 1000;
     extraGroups = [ "wheel" "networkmanager" ];

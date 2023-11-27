@@ -17,7 +17,7 @@
     unar
     unzip
     dd
-
+    zsh
 
     # Build toolchains
     autoconf
@@ -37,8 +37,8 @@
 
 
     # GUI tools
-
-
+    kicad
+    xfce.thunar
 
     # Media
     ffmpeg-full
@@ -51,13 +51,17 @@
     # IDEs
     neovim
     vscode
-
+    # Hyprland deps
+    waybar
+    wofi
+    # Ricing apps
+    spotify-qt
+    cava
+    # Ricing Themes
+    tokyo-night-gtk
     # Desktop
-    
-    xmonad-with-packages
-    dmenu
-    rofi
     material-icons
+    neofetch
 
     xorg.xmodmap
     xorg.xset
@@ -71,7 +75,7 @@
     iosevka
 
     firefox
-    chromium
+    google-chrome
     alacritty
     hyprland
     ncmpcpp
