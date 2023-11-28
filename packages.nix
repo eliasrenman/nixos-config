@@ -44,6 +44,8 @@
 
     # CLI Tools
     neofetch
+    bat
+    exa
     # Media
     ffmpeg-full
     
