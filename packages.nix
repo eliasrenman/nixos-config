@@ -56,6 +56,7 @@
     # Hyprland deps
     waybar
     wofi
+    libsForQt5.sddm
     # Ricing apps
     spotify-qt
     cava
