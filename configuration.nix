@@ -77,7 +77,7 @@
 
   services.xserver.enable = true;
   # services.xserver.xkbOptions = "eurosign:e";
-
+  services.xserver.displayManager.sddm.enable
   services.xserver.libinput.enable = true;
   services.xserver.layout = "se";
   services.xserver.xkbVariant = "mac";
