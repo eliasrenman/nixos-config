@@ -38,14 +38,14 @@
     # GUI tools
     kicad-small
     xfce.thunar
-    firefox
     google-chrome
     alacritty
-
+    vlc
     # CLI Tools
     neofetch
     bat
     exa
+    gh
     # Media
     ffmpeg-full
     
@@ -64,13 +64,11 @@
     tokyo-night-gtk
     # Desktop
     material-icons
-   
-    vlc
     xorg.xmodmap
     xorg.xset
     xorg.xsetroot
     
-    
+    wlsunset
     hyprland
 
     # Fonts

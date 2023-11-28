@@ -21,8 +21,8 @@
   boot.initrd.checkJournalingFS = false;
   # End VBox only
 
-  networking.hostName = "nixos";
-  networking.wireless.enable = true;
+  networking.hostName = "matebook";
+  networking.networkmanager.enable = true;
 
   i18n.defaultLocale = "sv_SE.UTF-8";
 
@@ -31,7 +31,14 @@
   # started in user sessions.
   # programs.mtr.enable = true;
   # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    ohMyZsh.enable = true;
+    shellAliases = {
+      vi = "nvim";
+
+    };
+  };
   users.defaultUserShell = pkgs.zsh;
   programs.neovim.enable = true;
   programs.neovim.vimAlias = true;
@@ -49,7 +56,6 @@
   };
 
   services.acpid.enable = true;
-  services.redshift.enable = true;
   location.latitude = 63.825848;
   location.longitude = -20.263035;
 
