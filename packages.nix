@@ -46,6 +46,7 @@
     bat
     exa
     gh
+    brightnessctl
     # Media
     ffmpeg-full
     
@@ -70,13 +71,5 @@
     
     wlsunset
     hyprland
-
-    # Fonts
-    
-    terminus_font
-    terminus_font_ttf
-    jetbrains-mono
-    inriafonts
-    powerline-fonts
   ];
 }

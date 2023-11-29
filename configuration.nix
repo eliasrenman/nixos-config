@@ -55,6 +55,11 @@
     startWhenNeeded = true;
   };
 
+  fonts.fontDir.enable = true;
+  fonts.fonts = with pkgs; [
+    nerdfonts
+  ];
+
   services.acpid.enable = true;
   location.latitude = 63.825848;
   location.longitude = -20.263035;
