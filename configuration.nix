@@ -16,6 +16,10 @@
   boot.loader.grub.device = "/dev/sda";
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # bluetooth support
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
   # VBox only
   # fsck will fail under vbox and cause a boot to hang, so turn it off
   boot.initrd.checkJournalingFS = false;
