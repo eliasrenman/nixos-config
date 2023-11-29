@@ -101,7 +101,7 @@
   programs.hyprland.enable = true;
   # programs.hyprland.enableNvidiaPatches = true;
   programs.hyprland.xwayland.enable = true;
-
+  programs.hyprland.xwayland.hidpi = true;
   # Don't forget to set a password with ‘passwd’.
   users.users.elias = {
     isNormalUser = true;

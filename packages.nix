@@ -47,6 +47,7 @@
     exa
     gh
     brightnessctl
+    hyprpaper
     # Media
     ffmpeg-full
     
@@ -58,6 +59,7 @@
     waybar
     wofi
     libsForQt5.sddm
+    wlogout
     # Ricing apps
     spotify-qt
     cava
