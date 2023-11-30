@@ -30,7 +30,7 @@
     clang-manpages
     clang-tools
     
-    rustc
+    rustup
     python38
     nodejs_20
 
