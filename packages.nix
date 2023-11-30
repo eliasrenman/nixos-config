@@ -60,6 +60,7 @@
     wofi
     libsForQt5.sddm
     wlogout
+    swaylock-effects
     # Ricing apps
     spotify-qt
     cava

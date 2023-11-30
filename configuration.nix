@@ -15,7 +15,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.efi.canTouchEfiVariables = true;
-
+  
   # bluetooth support
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
@@ -110,7 +110,8 @@
     uid = 1000;
     extraGroups = [ "wheel" "networkmanager" ];
   };
-
+  # Login configuration
+  security.pam.services.swaylock = {};
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
@@ -118,5 +119,4 @@
   system.stateVersion = "18.09";
 
   system.autoUpgrade.enable = true;
-
 }
