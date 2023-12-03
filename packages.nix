@@ -41,6 +41,8 @@
     google-chrome
     alacritty
     vlc
+    pavucontrol
+    discord
     # CLI Tools
     neofetch
     bat
@@ -59,6 +61,8 @@
     waybar
     wofi
     libsForQt5.sddm
+    libsForQt5.polkit-kde-agent
+    glib
     wlogout
     swaylock-effects
     # Ricing apps

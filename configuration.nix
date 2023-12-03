@@ -118,5 +118,20 @@
   # should.
   system.stateVersion = "18.09";
 
-  system.autoUpgrade.enable = true;
+  environment.etc."xdg/gtk-2.0/gtkrc".text = ''
+    gtk-theme-name = "gtk-tokyo-night"
+  '';
+
+  environment.etc."xdg/gtk-3.0/settings.ini".text = ''
+    [Settings]
+    gtk-theme-name = gtk-tokyo-night
+    gtk-application-prefer-dark-theme=1
+  '';
+  nixpkgs.overlays = [
+    (self: super: {
+      waybar = super.waybar.overrideAttrs (oldAttrs: {
+        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      });
+    })
+  ];
 }
