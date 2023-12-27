@@ -16,6 +16,17 @@
   boot.loader.grub.device = "/dev/sda";
   boot.loader.efi.canTouchEfiVariables = true;
   
+  # Plymouth for graphical bootscreen
+  boot.plymouth.enable = true;
+  boot.initrd.systemd.enable = true;
+  boot.kernelParams = [ "quiet" ];
+  boot.plymouth.extraConfig = ''
+  DeviceScale=2
+  '';
+  boot.plymouth.themePackages = with pkgs; [
+    (adi1090x-plymouth-themes.override { selected_themes = [ "colorful_loop" ]; })
+  ];
+  boot.plymouth.theme = "colorful_loop";
   # bluetooth support
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
@@ -60,7 +71,7 @@
   };
 
   fonts.fontDir.enable = true;
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     nerdfonts
   ];
 
@@ -92,16 +103,18 @@
 
   services.xserver.enable = true;
   # services.xserver.xkbOptions = "eurosign:e";
-  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.sddm = {
+      enable = true;
+      theme = "chili";
+  };
   services.xserver.libinput.enable = true;
   services.xserver.layout = "se";
   services.xserver.xkbVariant = "mac";
-
+  
   # Enable the Hyprland Desktop Environment.
   programs.hyprland.enable = true;
   # programs.hyprland.enableNvidiaPatches = true;
   programs.hyprland.xwayland.enable = true;
-  programs.hyprland.xwayland.hidpi = true;
   # Don't forget to set a password with ‘passwd’.
   users.users.elias = {
     isNormalUser = true;
@@ -116,17 +129,7 @@
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "18.09";
-
-  environment.etc."xdg/gtk-2.0/gtkrc".text = ''
-    gtk-theme-name = "gtk-tokyo-night"
-  '';
-
-  environment.etc."xdg/gtk-3.0/settings.ini".text = ''
-    [Settings]
-    gtk-theme-name = gtk-tokyo-night
-    gtk-application-prefer-dark-theme=1
-  '';
+  system.stateVersion = "18.09";  
   nixpkgs.overlays = [
     (self: super: {
       waybar = super.waybar.overrideAttrs (oldAttrs: {
@@ -134,4 +137,14 @@
       });
     })
   ];
+  services.logind.extraConfig = ''
+    # don’t shutdown when power button is short-pressed
+    HandlePowerKey=ignore
+  '';
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  #Spotify ports for google chromecasts and mobile phones
+  networking.firewall.allowedTCPPorts = [ 57621 ];
+  networking.firewall.allowedUDPPorts = [ 5353 ];
 }

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, fetchurl, ... }:
 
 {
   # Allow proprietary packages
@@ -31,28 +31,33 @@
     clang-tools
     
     rustup
-    python38
+    python3
     nodejs_20
 
 
     # GUI tools
     kicad-small
     xfce.thunar
-    google-chrome
+    firefox
     alacritty
     vlc
     pavucontrol
     discord
+    spotify
+    nwg-look
+    jetbrains-toolbox
+    aseprite
+    godot_4
     # CLI Tools
     neofetch
     bat
-    exa
+    eza
     gh
     brightnessctl
     hyprpaper
     # Media
     ffmpeg-full
-    
+    playerctl 
 
     # IDEs
     neovim
@@ -65,9 +70,11 @@
     glib
     wlogout
     swaylock-effects
+    sddm-chili-theme
+    
     # Ricing apps
-    spotify-qt
     cava
+    plymouth
     # Ricing Themes
     tokyo-night-gtk
     # Desktop
