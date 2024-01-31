@@ -29,11 +29,12 @@
     clang-analyzer
     clang-manpages
     clang-tools
-    
+    pipx
+
     rustup
     python3
-    nodejs_20
-
+    nodejs_18
+    corepack
 
     # GUI tools
     kicad-small
@@ -48,6 +49,8 @@
     jetbrains-toolbox
     aseprite
     godot_4
+    alsa-tools
+    insomnia
     # CLI Tools
     neofetch
     bat
@@ -71,6 +74,7 @@
     wlogout
     swaylock-effects
     sddm-chili-theme
+    polkit
     
     # Ricing apps
     cava
