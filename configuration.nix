@@ -111,10 +111,8 @@
   services.xserver.layout = "se";
   services.xserver.xkbVariant = "mac";
   
-  # Enable the Hyprland Desktop Environment.
-  programs.hyprland.enable = true;
-  # programs.hyprland.enableNvidiaPatches = true;
-  programs.hyprland.xwayland.enable = true;
+  # Enable i3 window manager
+  services.xserver.windowManager.i3.enable = true;
   # Don't forget to set a password with ‘passwd’.
   users.users.elias = {
     isNormalUser = true;
@@ -131,13 +129,7 @@
   # servers. You should change this only after NixOS release notes say you
   # should.
   system.stateVersion = "18.09";  
-  nixpkgs.overlays = [
-    (self: super: {
-      waybar = super.waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-      });
-    })
-  ];
+
   services.logind.extraConfig = ''
     # don’t shutdown when power button is short-pressed
     HandlePowerKey=ignore

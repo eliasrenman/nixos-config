@@ -66,12 +66,9 @@
     neovim
     vscode
     # Hyprland deps
-    waybar
-    wofi
     libsForQt5.sddm
     libsForQt5.polkit-kde-agent
-    glib
-    wlogout
+    
     swaylock-effects
     sddm-chili-theme
     polkit
@@ -87,7 +84,12 @@
     xorg.xset
     xorg.xsetroot
     
-    wlsunset
-    hyprland
+    redshift
+    # Desktop manager
+
+    i3
+    polybar
+    ## find a replacement for wlogout?
+    dmenu
   ];
 }
