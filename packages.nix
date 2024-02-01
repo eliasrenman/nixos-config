@@ -57,7 +57,9 @@
     eza
     gh
     brightnessctl
-    hyprpaper
+    killall
+    glances
+    pamixer
     # Media
     ffmpeg-full
     playerctl 
@@ -68,8 +70,6 @@
     # Hyprland deps
     libsForQt5.sddm
     libsForQt5.polkit-kde-agent
-    
-    swaylock-effects
     sddm-chili-theme
     polkit
     
@@ -88,8 +88,12 @@
     # Desktop manager
 
     i3
-    polybar
     ## find a replacement for wlogout?
-    dmenu
+    dex
+    rofi
+    picom
+    nitrogen
+    i3lock-color
+    betterlockscreen
   ];
 }

@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs,lib, ... }:
 
 {
   imports =
@@ -20,9 +20,6 @@
   boot.plymouth.enable = true;
   boot.initrd.systemd.enable = true;
   boot.kernelParams = [ "quiet" ];
-  boot.plymouth.extraConfig = ''
-  DeviceScale=2
-  '';
   boot.plymouth.themePackages = with pkgs; [
     (adi1090x-plymouth-themes.override { selected_themes = [ "colorful_loop" ]; })
   ];
@@ -60,7 +57,7 @@
   programs.neovim.defaultEditor = true;
   #programs.nylas-mail.enable = true;
   programs.npm.enable = true;
-  #programs.nm-applet.enable = true;
+  programs.nm-applet.enable = true;
   programs.less.enable = true;
   #programs.iotop.enable = true;
   programs.iftop.enable = true;
@@ -113,6 +110,28 @@
   
   # Enable i3 window manager
   services.xserver.windowManager.i3.enable = true;
+  services.xserver.windowManager.i3.extraPackages = with pkgs; [
+    polybar
+    dmenu
+  ];
+  services.redshift.enable = true;
+  services.picom = {
+    enable = true;
+    vSync = true;
+    inactiveOpacity = 0.65;
+    activeOpacity = 0.98;
+    settings = {
+      corner-radius = 3;
+    };
+    opacityRules = [
+  	  "100:class_g = 'rofi' && !focused"
+  	  "100:class_g = 'rofi' && focused"
+    ];
+  };
+ 
+  programs.i3lock.enable = true;
+  programs.i3lock.package = pkgs.i3lock-color;
+
   # Don't forget to set a password with ‘passwd’.
   users.users.elias = {
     isNormalUser = true;
@@ -134,8 +153,6 @@
     # don’t shutdown when power button is short-pressed
     HandlePowerKey=ignore
   '';
-
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   #Spotify ports for google chromecasts and mobile phones
   networking.firewall.allowedTCPPorts = [ 57621 ];
