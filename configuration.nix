@@ -117,18 +117,11 @@
   services.redshift.enable = true;
   services.picom = {
     enable = true;
-    vSync = true;
-    inactiveOpacity = 0.65;
-    activeOpacity = 0.98;
-    settings = {
-      corner-radius = 3;
-    };
-    opacityRules = [
-  	  "100:class_g = 'rofi' && !focused"
-  	  "100:class_g = 'rofi' && focused"
-    ];
   };
  
+  systemd.user.services.picom.serviceConfig.ExecStart = lib.mkForce ''
+    ${pkgs.picom}/bin/picom --config /home/elias/.config/picom/picom.conf
+  '';
   programs.i3lock.enable = true;
   programs.i3lock.package = pkgs.i3lock-color;
 
@@ -157,4 +150,31 @@
   #Spotify ports for google chromecasts and mobile phones
   networking.firewall.allowedTCPPorts = [ 57621 ];
   networking.firewall.allowedUDPPorts = [ 5353 ];
+
+  # automatically connect to monitors
+  services.autorandr = {
+    enable = true;
+    # profiles = {
+    #   "laptop" = {
+    #      fingerprint = {
+    #       eDP1 = "<EDID>";
+    #       # DP1 = "<EDID>";
+    #     };
+    #     config = {
+    #       eDP1 = {
+    #         enable = true;
+    #       };
+    #     #   DP1 = {
+    #     #     enable = true;
+    #     #     crtc = 0;
+    #     #     primary = true;
+    #     #     position = "0x0";
+    #     #     mode = "3840x2160";
+    #     #     gamma = "1.0:0.909:0.833";
+    #     #     rate = "60.00";
+    #     #     rotate = "left";
+    #     # };
+    #   }
+    # };
+  };
 }

@@ -60,6 +60,8 @@
     killall
     glances
     pamixer
+    autorandr
+
     # Media
     ffmpeg-full
     playerctl 
