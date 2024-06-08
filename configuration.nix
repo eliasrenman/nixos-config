@@ -21,7 +21,7 @@
   boot.initrd.systemd.enable = true;
   boot.kernelParams = [ "quiet" ];
   boot.plymouth.extraConfig = ''
-  DeviceScale=2
+  DeviceScale=1
   '';
   boot.plymouth.themePackages = with pkgs; [
     (adi1090x-plymouth-themes.override { selected_themes = [ "colorful_loop" ]; })
@@ -113,7 +113,6 @@
   
   # Enable the Hyprland Desktop Environment.
   programs.hyprland.enable = true;
-  # programs.hyprland.enableNvidiaPatches = true;
   programs.hyprland.xwayland.enable = true;
   # Don't forget to set a password with ‘passwd’.
   users.users.elias = {
@@ -121,7 +120,7 @@
     description = "Elias Renman";
     home = "/home/elias";
     uid = 1000;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "wheel" "networkmanager" "docker" ];
   };
   # Login configuration
   security.pam.services.swaylock = {};
@@ -148,4 +147,64 @@
   #Spotify ports for google chromecasts and mobile phones
   networking.firewall.allowedTCPPorts = [ 57621 ];
   networking.firewall.allowedUDPPorts = [ 5353 ];
+
+  # Nvidia driver configuration
+  # Enable OpenGL
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
+
+  # Load nvidia driver for Xorg and Wayland
+  services.xserver.videoDrivers = ["nvidia"];
+
+  hardware.nvidia = {
+    prime = {
+      sync.enable = true;
+
+        # Make sure to use the correct Bus ID values for your system!
+        nvidiaBusId = "PCI:1:0:0";
+        intelBusId = "PCI:0:2:0";
+      };
+    # Modesetting is required.
+    modesetting.enable = true;
+
+    # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
+    # Enable this if you have graphical corruption issues or application crashes after waking
+    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead 
+    # of just the bare essentials.
+    powerManagement.enable = false;
+
+    # Fine-grained power management. Turns off GPU when not in use.
+    # Experimental and only works on modern Nvidia GPUs (Turing or newer).
+    powerManagement.finegrained = false;
+
+    # Use the NVidia open source kernel module (not to be confused with the
+    # independent third-party "nouveau" open source driver).
+    open = false;
+
+    # Enable the Nvidia settings menu,
+	  # accessible via `nvidia-settings`.
+    nvidiaSettings = true;
+
+    # Optionally, you may need to select the appropriate driver version for your specific GPU.
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+  programs.hyprland.enableNvidiaPatches = true;
+
+  environment.variables = {
+    PKG_CONFIG_PATH="${pkgs.openssl.dev}/lib/pkgconfig";
+  };
+
+  
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+
+  
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "elias" ];
+
 }

@@ -30,6 +30,12 @@
     clang-manpages
     clang-tools
     pipx
+    bun
+    pkg-config
+    openssl
+    go
+    docker
+    SDL2
 
     rustup
     python3
@@ -39,6 +45,8 @@
     # GUI tools
     kicad-small
     xfce.thunar
+    xfce.thunar-archive-plugin
+    libsForQt5.koko
     firefox
     alacritty
     vlc
@@ -58,6 +66,11 @@
     gh
     brightnessctl
     hyprpaper
+    killall
+    pamixer
+    glances
+    spotify-tui
+    spotifyd
     # Media
     ffmpeg-full
     playerctl 
@@ -65,16 +78,10 @@
     # IDEs
     neovim
     vscode
-    # Hyprland deps
-    waybar
-    wofi
-    libsForQt5.sddm
-    libsForQt5.polkit-kde-agent
-    glib
-    wlogout
     swaylock-effects
     sddm-chili-theme
-    polkit
+    libsForQt5.sddm
+    libsForQt5.polkit-kde-agent
     
     # Ricing apps
     cava
@@ -86,8 +93,22 @@
     xorg.xmodmap
     xorg.xset
     xorg.xsetroot
-    
+    # Hyprland deps    
+    glib
+    polkit
+    wlogout
+    wofi
+    waybar
     wlsunset
     hyprland
+    slurp
+    grim
+    wl-clipboard
+    hyprpicker
+    xwaylandvideobridge
+
+    # FPV related
+    betaflight-configurator
+    chromium
   ];
 }
