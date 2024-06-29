@@ -36,6 +36,7 @@
     go
     docker
     SDL2
+    libxcrypt
 
     rustup
     python3
